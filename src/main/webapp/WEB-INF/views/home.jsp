@@ -16,7 +16,7 @@
 				type:"post",
 				url:"/gym/messages/",
 				dataType:"JSON",
-				contentType:"application/json;charset=UTF-8",
+				contentType:"application/json; charset=UTF-8",
 				data:JSON.stringify(data),
 				success:function(data){
 					
