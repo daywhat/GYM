@@ -1,40 +1,28 @@
 package org.exit.gym;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.exit.model.dto.MessageVO;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-/**
- * Handles requests for the application home page.
- */
-@Controller
-public class MessageController {
-	
-	private static final Logger logger = LoggerFactory.getLogger(MessageController.class);
-	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String home(Locale locale, Model model) {
+@RestController
+	@RequestMapping("/messages/*")
+	public class MessageController{
+		@RequestMapping(value="/", method=RequestMethod.POST)
+		public ResponseEntity<String> addMessage(@RequestBody MessageVO vo){
 		ResponseEntity<String> entity = null;
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		try {
+			System.out.println("MessageController:" + vo);
+			entity = new ResponseEntity<>("success",HttpStatus.OK);
+		}catch(Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<>(e.getMessage(),HttpStatus.OK);
+		}
 		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
-		return "home";
-	}
-	
+		return entity;
+		}
 }
