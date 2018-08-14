@@ -35,6 +35,14 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-<button id="btn">Click</button>
+<button id="btn">Click</button><br>
+
+<a href="/gym/sample/hello">hello</a><br>
+<a href="/gym/sample/sendVO">sendVO</a><br>
+<a href="/gym/sample/sendList">sendList</a><br>
+<a href="/gym/sample/sendMap">sendMap</a><br>
+<a href="/gym/sample/sendErrorAuth">sendErrorAuth</a><br>
+<a href="/gym/sample/sendErrorNot">sendErrorNot</a><br>
+
 </body>
 </html>
