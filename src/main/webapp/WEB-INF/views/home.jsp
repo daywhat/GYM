@@ -28,6 +28,7 @@
 		})
 	})
 	</script>
+	<%@ include file="./include/header.jsp" %>
 </head>
 <body>
 <h1>
@@ -43,6 +44,8 @@
 <a href="/gym/sample/sendMap">sendMap</a><br>
 <a href="/gym/sample/sendErrorAuth">sendErrorAuth</a><br>
 <a href="/gym/sample/sendErrorNot">sendErrorNot</a><br>
+
+<%@ include file="./include/footer.jsp" %>
 
 </body>
 </html>
